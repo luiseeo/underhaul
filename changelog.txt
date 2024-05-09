@@ -1,0 +1,28 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 05. 06. 2024
+  Features:
+    - Added mod settings to enable or disable some of the technologies: Combat robots, Discharge defense, beacons
+    - Reduced the collision box of solar panels so that dealing with solar farms is less tedious
+  Balancing:
+    - Reduced the number of rails required for Purple Science recipe
+    - Reduce cost of the fluid wagon tech
+    - Increased the cost of Modules 2 tech (in the previous version it was reduced too much)
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 04. 25. 2024
+  Features:
+    - This is the first version of the mod
+  Balancing:
+    - Reduced cost of steel plates from 5 to 3 iron plates
+    - Reduced cost of Red Circuits from 2GreenCircuit+3CopperWire+2PlasticBar to 2GreenCircuit+2CopperWire+1PlasticBar
+    - Reduced crafting time of Red Circuits from 6 to 3 seconds
+    - Changed the ratio of Copper wire to Green Circuit assemblers from 3:2 to 1:1
+    - Changed the ratio of Science (Red:Green:Gray:Blue:Purple:Yellow) assemblers from 5:6:5:12:7:7 to 5:5:5:6:6:6
+    - Reduced the number of Bonus Technologies. They are now fewer, but their bonus are more meaningful
+    - Reduced the costs for many recipes to feel less grindy
+    - Reduced the crafting time for many recipes
+    - Made the ratios for many related items easier to remember
+    - Reduced the costs for many technologies to feel less grindy
+    - Removes some technologies that most people don't use (like combat robots)
+    - Reworked the modules. Overall, they offer more bonuses and less drawbacks. HOWEVER, Beacons are disabled
