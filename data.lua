@@ -565,7 +565,7 @@ Recipe:cloneInto("heavy-armor", "uh:heavy-armor-plus")
 
 -- Create the technology that unlocks HeavyArmor+ recipe
 local heavyArmorPlusTech = Tech:cloneInto("heavy-armor", "uh:heavy-armor-plus")
-Tech:get("uh:heavy-armor-plus"):setColors("R"):setCost(60):setTime(30)
+Tech:get("uh:heavy-armor-plus"):setColors("R"):setCost(45):setTime(30)
 :setPrerequisites({"heavy-armor"})
 :setEffect({type="unlock-recipe", recipe="uh:heavy-armor-plus"})
 heavyArmorPlusTech.icons = {
