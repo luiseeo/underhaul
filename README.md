@@ -30,8 +30,16 @@ Balance philosophy:
 - Make ratios easier to remember
 - Remove some technologies that are beginner traps
 - Reduce the number of bonus technologies, but make each bonus technology more significant
+- Accelerate the early game with some bonus items found in the crashed Space ship
 - Reduce the feeling of grinding in the mid-game and end-game
 - Keep most systems. Exploring the different systems of Factorio and their paradigms is fun. Maybe make them easier to use, but don't remove them
+
+Faster start:
+-----------
+
+- More items and equipment survived the crash! Use the items to kickstart your base faster.
+- Added a new armor: *Heavy Armor+* It has a very small equipment grid that is compatible with equipment found on the crashed Space ship
+- A construction robot equipment kit survived the crash: a personal robot port, constructions bots, portable solar panels, a personal battery. This combined with Heavy Armor+ is essentially *Early bots*!
 
 Mayor balance changes:
 -----------------------
