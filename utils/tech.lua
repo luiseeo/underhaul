@@ -2,6 +2,7 @@
 -- Sample usage:
 -- Tech:get("tech-name"):setCost(200):setColors("RG")
 
+local Common = require "common"
 local Tech = {}
 local techName = ""
 
@@ -12,6 +13,12 @@ function Tech:get(name)
   setmetatable(technology, self)
   self.__index = self
   return technology
+end
+
+-- Creates a new technology by cloning an existing one
+function Tech:cloneInto(from, into)
+  Common.cloneInto("technology", from, into)
+  return Tech:get(into)
 end
 
 -- Changes the cost of a Technology. It keeps the Science colors required
@@ -72,6 +79,12 @@ end
 -- Shorter version of setEffects for just 1 effect (which is common)
 function Tech:setEffect(effect)
   self.effects = { effect }
+  return self
+end
+
+-- Changes the prerequisites that enable this technology
+function Tech:setPrerequisites(prerequisites)
+  self.prerequisites = prerequisites
   return self
 end
 

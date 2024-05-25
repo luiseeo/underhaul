@@ -534,6 +534,72 @@ end
 
 
 --------------------
+-- HEAVY ARMOR+  --
+--------------------
+-- The Heavy Armor+ provides a 3x3 equipment grid. The equipment found on the
+-- Spaceship debris can go here and grant early bots!
+
+-- Create a new equipment grid of size 3x3
+local tinyGrid = Common.cloneInto("equipment-grid", "small-equipment-grid", "uh:tiny-equipment-grid")
+tinyGrid.width = 3
+tinyGrid.height = 3
+
+-- Create the item
+local heavyArmorPlus = Common.cloneInto("armor", "heavy-armor", "uh:heavy-armor-plus")
+heavyArmorPlus.equipment_grid = "uh:tiny-equipment-grid"
+heavyArmorPlus.icons = {
+  {
+    icon = "__underhaul__/graphics/icons/heavy-armor-plus.png",
+    icon_size = heavyArmorPlus.icon_size
+  }
+}
+
+-- Create a new recipe for HeavyArmor+
+Recipe:cloneInto("heavy-armor", "uh:heavy-armor-plus")
+:setIngredients({
+  {"heavy-armor", 1},
+  {"electronic-circuit", 50}
+}):setProducts({
+  {"uh:heavy-armor-plus", 1}
+})
+
+-- Create the technology that unlocks HeavyArmor+ recipe
+local heavyArmorPlusTech = Tech:cloneInto("heavy-armor", "uh:heavy-armor-plus")
+Tech:get("uh:heavy-armor-plus"):setColors("R"):setCost(60):setTime(30)
+:setPrerequisites({"heavy-armor"})
+:setEffect({type="unlock-recipe", recipe="uh:heavy-armor-plus"})
+heavyArmorPlusTech.icons = {
+  {
+    icon = heavyArmorPlusTech.icon,
+    icon_size = heavyArmorPlusTech.icon_size,
+    tint = {r=1,g=1,b=0.2,a=0.8}
+  },
+  {
+    icon = "__core__/graphics/icons/technology/constants/constant-equipment.png",
+    icon_size = 128,
+    shift = {100, 100}
+  }
+}
+
+local function GetHeavyArmorAnimationIndex()
+  for i, armorAnimation in ipairs(data.raw["character"]["character"].animations) do
+    if armorAnimation.armors ~= nil then
+      for _, armorId in ipairs(armorAnimation.armors) do
+        if armorId == "heavy-armor" then
+          return i
+        end
+      end
+    end
+  end
+  return 0
+end
+-- Find the armor animations used for heavy-armor
+local animationIndex = GetHeavyArmorAnimationIndex()
+-- Add heavy-armor-plus to the list of armor for that animation
+table.insert(data.raw["character"]["character"].animations[animationIndex].armors, "uh:heavy-armor-plus")
+
+
+--------------------
 -- MODULE BALANCE --
 --------------------
 local function changeModuleEffect(name, effect)

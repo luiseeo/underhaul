@@ -2,6 +2,7 @@
 -- Sample usage:
 -- Recipe:get("recipe-name"):setCost(200):setColors("RG")
 
+local Common = require "common"
 local Recipe = {}
 local recipeName = ""
 
@@ -14,6 +15,12 @@ function Recipe:get(name)
   return recipe
 end
 
+-- Creates a new recipe by cloning an existing one
+function Recipe:cloneInto(from, into)
+  Common.cloneInto("recipe", from, into)
+  return Recipe:get(into)
+end
+
 -- Changes the Recipe ingredients (the input)
 function Recipe:setIngredients(ingredients)
   self.ingredients = ingredients
@@ -22,7 +29,7 @@ end
 
 -- Changes the Recipe products (the output)
 function Recipe:setProducts(products)
-  self.products = products
+  self.results = products
   return self
 end
 
