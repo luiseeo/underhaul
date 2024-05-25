@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 05. 24. 2024
+  Features:
+    - Added Heavy Armor+, an early-game armor with an small equipment grid
+    - Added additional items in the Space ship debris. Including a basic construction robot kit (that can be used with Heavy Armor+)
+  Bugfixes:
+    - Fixed the recipe for Uranium
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 05. 06. 2024
   Features:
