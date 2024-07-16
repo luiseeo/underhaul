@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.1
+Date: 07. 15. 2024
+  Bugfixes:
+    - Fixed the "Unknown interface: freeplay" error when trying to launch a game mode other than freeplay
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 05. 24. 2024
   Features:
