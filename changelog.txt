@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.0
+Date: 08. 10. 2024
+  Balancing:
+    - Labs research speed increased from 1.0 to 1.5.
+    - Removed iron sticks as an ingredient from all (vanilla) recipes, simplifying many recipes. Replaced iron stick cost with similar iron plate or steel cost.
+    - Reduce cost of automation research. From 10Red at 10s to 5Red at 5s.
+    - Replaced copper plates with copper wires in electric poles recipes. Now all electric poles (small, medium, big) use copper wire.
+    - Reduce crafting time for burner mining drill, electric mining drill and gun turret.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.1
 Date: 07. 15. 2024
   Bugfixes:

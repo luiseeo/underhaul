@@ -67,6 +67,7 @@ Recipe:get("express-splitter"):setIngredients({
   {type="fluid", name="lubricant", amount=80}
 })
 
+-- INSERTERS --
 -- Stack inserter. Reduce cost from 15gear+15GC+1RC+1fastInserter -> 10gear+10GC+1RC+fastInserter
 Recipe:get("stack-inserter"):setIngredients({
   {"iron-gear-wheel", 10},
@@ -80,15 +81,35 @@ Recipe:get("stack-filter-inserter"):setIngredients({
   {"stack-inserter", 1}
 })
 
+-- POLES --
+-- Medium electric pole. Change cost from 2copper+2steel+2ironSticks -> 4copperCable+2steel
+Recipe:get("medium-electric-pole"):setIngredients({
+  {"copper-cable", 4},
+  {"steel-plate", 2}
+})
+-- Big electric pole. Change cost from 5copper+5steel+8ironSticks -> 8copperCable+5steel
+Recipe:get("big-electric-pole"):setIngredients({
+  {"copper-cable", 8},
+  {"steel-plate", 5}
+})
+
 -- Pipe to ground. Reduce iron plate cost from 5 -> 2
 Recipe:get("pipe-to-ground"):setIngredients({
   {"iron-plate", 2},
   {"pipe", 10}
 })
+
+-- TRAINS --
 -- Rail. Change cost from 1stone+1steel+1ironStick -> 1stone+2steel
 Recipe:get("rail"):setIngredients({
   {"stone", 1},
   {"steel-plate", 2}
+})
+-- Train stop. Change cost from 6iron+3steel+6ironStick+5GC -> 8iron+3steel+5GC
+Recipe:get("train-stop"):setIngredients({
+  {"iron-plate", 8},
+  {"steel-plate", 3},
+  {"electronic-circuit", 5}
 })
 -- Locomotive. Reduce engine cost from 20 -> 10
 Recipe:get("locomotive"):setIngredients({
@@ -115,6 +136,22 @@ Recipe:get("roboport"):setIngredients({
   {"steel-plate", 30},
   {"iron-gear-wheel", 30},
   {"advanced-circuit", 30}
+})
+
+-- Programmable speaker. Change cost from 3iron+5copper+4ironSticks+4GC -> 5iron+5copper+4GC
+Recipe:get("programmable-speaker"):setIngredients({
+  {"iron-plate", 5},
+  {"copper-plate", 5},
+  {"electronic-circuit", 4}
+})
+
+-- Refined concrete. Change cost from
+-- 1steel+8ironSticks+20concrete+100water=10refinedConcrete ->
+-- 2steel+20concrete+100water=10refinedConcrete
+Recipe:get("refined-concrete"):setIngredients({
+  {"steel-plate", 2},
+  {"concrete", 20},
+  {type="fluid", name="water", amount=100}
 })
 
 -- Landfill. Reduce stone cost from 20 -> 10
@@ -164,6 +201,12 @@ Recipe:get("nuclear-reactor"):setIngredients({
   {"advanced-circuit", 200},
   {"concrete", 200}
 })
+
+-- Burner mining drill. Redice crafting time from 2s -> 1s
+Recipe:get("burner-mining-drill"):setEnergy(1)
+
+-- Electric mining drill. Reduce crafting time from 2s -> 1s
+Recipe:get("electric-mining-drill"):setEnergy(1)
 
 -- Electric furnace. Reduce RC cost from 5 -> 2
 Recipe:get("electric-furnace"):setIngredients({
@@ -427,6 +470,9 @@ Recipe:get("personal-laser-defense-equipment"):setIngredients({
   {"laser-turret", 2}
 })
 
+-- Gun turret. Reduce crafting time from 8s -> 1s
+Recipe:get("gun-turret"):setEnergy(1)
+
 -- Radar. Reduce power usage from 300kW -> 150kW
 -- Sectors are slighly cheaper/faster to scan
 local radarEntity = data.raw["radar"]["radar"]
@@ -441,7 +487,8 @@ radarEntity.energy_per_nearby_scan = "125kJ"
 -- Glossary:
 -- R:Red, G:Green, M:Gray(Military)
 -- B:Blue, P:Purple, Y:Yellow, W:White
-
+-- Automation. Reduce from 10R@10s -> 5R@5s
+Tech:get("automation"):setCost(5):setTime(5)
 -- Steel axe. Reduce from 50R@30s -> 30R@30s
 Tech:get("steel-axe"):setCost(30)
 -- Landfill. Reduce from 50R+G @30s -> 30R+G@30s
@@ -598,6 +645,13 @@ local animationIndex = GetHeavyArmorAnimationIndex()
 -- Add heavy-armor-plus to the list of armor for that animation
 table.insert(data.raw["character"]["character"].animations[animationIndex].armors, "uh:heavy-armor-plus")
 
+----------
+-- LABS --
+----------
+-- Buff the lab speed so that it can keep up with the increased production due
+-- to the rest of the  balance changes
+-- Increase from 1.0 -> 1.5
+data.raw["lab"]["lab"].researching_speed = 1.5
 
 --------------------
 -- MODULE BALANCE --
